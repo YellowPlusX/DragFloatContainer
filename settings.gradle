@@ -1,0 +1,3 @@
+include ':dragfloatContainer'
+include ':app'
+rootProject.name = "DragFloatContainer"
