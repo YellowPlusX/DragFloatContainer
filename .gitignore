@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 .idea/*
+mavenAccount.properties
+dragfloatContainer/publish_aar.gradle

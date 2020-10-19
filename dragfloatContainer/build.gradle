@@ -1,6 +1,9 @@
 apply plugin: 'com.android.library'
+
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+
+apply from: 'publish_aar.gradle'
 
 android {
     compileSdkVersion 29
@@ -10,7 +13,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
+        versionName "${drag_float_container_version}"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -20,6 +23,14 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs("src/main/java")
+            }
         }
     }
 }
@@ -32,5 +43,4 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
 }
