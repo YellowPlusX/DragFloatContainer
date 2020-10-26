@@ -1,5 +1,5 @@
 # DragFloatContainer
-一个继承自 FrameLayout 简单的可拖拽容器。通过设置 translationX 和 translationY 替代设置 LayoutParameter 避免了频繁请求 request 的消耗；解决了拖拽和点击事件的拦截和传递。使用者只需要关注可真正需要拖拽的布局的实现。
+一个继承自 FrameLayout 简单的可拖拽容器。通过设置 translationX 和 translationY 替代设置 LayoutParameter 避免了频繁请求 requestLayout 的消耗；解决了拖拽和点击事件的拦截和传递。使用者只需要关注真正需要拖拽的子布局的实现。
 
 ## 引用
 ``` groovy
