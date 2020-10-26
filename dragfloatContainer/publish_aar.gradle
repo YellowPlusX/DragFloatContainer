@@ -33,7 +33,7 @@ artifacts {
 }
 
 def sdk_version = "${drag_float_container_version}"
-def bintray_name = "$rootProject.ext.{bintray_user}"
+def bintray_name = "$rootProject.ext.bintray_user}"
 def bintray_key = "${rootProject.ext.bintray_apikey}"
 
 //发布到 Bintray
