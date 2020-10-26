@@ -1,0 +1,48 @@
+apply plugin: 'com.github.panpf.bintray-publish'
+
+//生成源文件
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+//生成Javadoc文档
+task javadoc(type:Javadoc) {
+    failOnError false
+    source = android.sourceSets.main.java.sourceFiles
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    classpath += configurations.compile
+}
+//文档打包成jar
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+//拷贝javadoc文件
+task copyDoc(type: Copy) {
+    from "${buildDir}/docs/"
+    into "docs"
+}
+
+
+//上传到JCenter所需要的源码文件
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+def sdk_version = "${drag_float_container_version}"
+def bintray_name = "$rootProject.ext.{bintray_user}"
+def bintray_key = "${rootProject.ext.bintray_apikey}"
+
+//发布到 Bintray
+publish {
+    userOrg = bintray_name           //bintray.com 注册的用户名
+    groupId = 'com.freeman.widget'   //以后访问 jcenter上此项目的路径，一般和库项目的包名一致
+    artifactId = 'dragfloatcontainer'       //bintray.com 创建的 Package 名
+    publishVersion = sdk_version         //版本号
+    desc = 'A draggable float container' //版本说明，随意
+    website = 'https://github.com/YellowPlusX/DragFloatContainer'    //关于这个开源项目的网站，随意
+    bintrayKey = bintray_key
+}

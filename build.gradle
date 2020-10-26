@@ -16,6 +16,7 @@ buildscript {
     }
 }
 
+apply from: 'bintrayconfig.gradle'
 
 allprojects {
     repositories {
