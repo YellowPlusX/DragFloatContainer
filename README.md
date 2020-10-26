@@ -1,5 +1,10 @@
 # DragFloatContainer
 一个继承自 FrameLayout 简单的可拖拽容器。通过设置 translationX 和 translationY 替代设置 LayoutParameter 避免了频繁请求 request 的消耗；解决了拖拽和点击事件的拦截和传递。使用者只需要关注可真正需要拖拽的布局的实现。
+
+## 引用
+``` groovy
+    implementation 'com.freeman.widget:dragfloatcontainer:1.0.0'
+```
 ## 使用方法
 ``` java
     <com.freeman.widget.dragfloatcontainer.DragFloatContainer
@@ -18,5 +23,5 @@
             android:layout_height="200dp"/>
     </com.freeman.widget.dragfloatcontainer.DragFloatContainer>
 ```
-# 使用实例
+# 使用示例
 ![emaple](./READMESRC/video2gif_20201018_194320.gif)
